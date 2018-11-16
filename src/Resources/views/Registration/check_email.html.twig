@@ -1,0 +1,9 @@
+{% extends "@OodUser/layout.html.twig" %}
+{% trans_default_domain 'application' %}
+
+{% block content %}
+    <div>
+        <h3>{{ 'registration_check_email.title'|trans }}</h3>
+        <p>{{ 'registration_check_email.text'|trans({'%email%': email}) }}</p>
+    </div>
+{% endblock content %}

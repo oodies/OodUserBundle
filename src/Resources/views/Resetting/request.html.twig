@@ -1,0 +1,24 @@
+{% extends "@OodUser/Resetting/layout_step_by_step.html.twig" %}
+{% trans_default_domain 'application' %}
+
+{% block layout_step_by_step %}
+    <div class="row setup-content" id="step-1">
+        <div class="col-md-12">
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate' }} ) }}
+            <p class="h4 pt-4 teal-text">{{ 'resetting_request.title'|trans }}</p>
+            <p>{{ 'resetting_request.text'|trans }}</p>
+            <div class="md-form">
+                <i class="fa fa-envelope-o prefix grey-text" aria-hidden="true"></i>
+                {{ form_widget(form.username) }}
+                {{ form_label(form.username) }}
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-default">
+                    {{ 'resetting_request.submit'|trans }}
+                </button>
+            </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock layout_step_by_step %}

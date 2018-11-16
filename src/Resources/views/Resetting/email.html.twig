@@ -1,0 +1,8 @@
+{% trans_default_domain 'application' %}
+{% block subject %}
+    {{ 'email.resetting.subject'|trans }}
+{% endblock subject %}
+
+{% block body_html %}
+    {% include ('@OodUser/Resetting/email.html') %}
+{% endblock body_html %}

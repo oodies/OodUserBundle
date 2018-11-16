@@ -1,0 +1,34 @@
+{% extends "@OodUser/layout.html.twig" %}
+{% trans_default_domain 'application' %}
+
+{% block content %}
+    <div class="card ml-auto mr-auto" style="max-width: 400px">
+        <h5 class="card-header primary-color white-text text-center py-4">
+            <strong>{{ 'registration_request.hook'|trans }}</strong>
+        </h5>
+        <div class="card-body px-lg-5 pt-0">
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate' }} ) }}
+            <div class="md-form">
+                {{ form_widget(form.email, { 'attr': {'tabindex':'1', 'autofocus': '' }} ) }}
+                {{ form_label(form.email) }}
+            </div>
+            <div class="md-form">
+                {{ form_widget(form.username, { 'attr': { 'tabindex':'2' }} ) }}
+                {{ form_label(form.username) }}
+            </div>
+            <div class="md-form">
+                {{ form_widget(form.plainPassword.first , { 'attr': { 'tabindex':'3' }} ) }}
+                {{ form_label(form.plainPassword.first) }}
+            </div>
+            <div class="md-form">
+                {{ form_widget(form.plainPassword.second, { 'attr': { 'tabindex':'4' }} ) }}
+                {{ form_label(form.plainPassword.second) }}
+            </div>
+            <div>
+                <button type="submit" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" tabindex="5">{{ 'registration_request.submit'|trans }}</button>
+            </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock content %}

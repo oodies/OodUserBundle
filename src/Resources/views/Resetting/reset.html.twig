@@ -1,0 +1,30 @@
+{% extends "@OodUser/Resetting/layout_step_by_step.html.twig" %}
+{% trans_default_domain 'application' %}
+
+{% block layout_step_by_step %}
+    <div class="row setup-content" id="step-1">
+        <div class="col-12">
+            <h2 class="pt-4">{{ 'resetting_reset.title'|trans }}</h2>
+            {{ form_start(form,
+                { 'action': path('ood_user_resetting_reset',{'token': token}),
+                    'attr'  : {'novalidate':'novalidate'}} ) }}
+            <div class="form-group row">
+                {{ form_label(form.plainPassword.first, null, {'label_attr': {'class': 'col-sm-2 col-form-label'}} ) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.plainPassword.first, {'attr': {'autofocus':'', 'tabindex':'2','class':'form-control' }} ) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                {{ form_label(form.plainPassword.second, null, {'label_attr': {'class': 'col-sm-2 col-form-label'}} ) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.plainPassword.second, {'attr': {'tabindex':'2','class':'form-control' }} ) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <input type="submit" value="{{ 'resetting_reset.submit'|trans }}" class="btn btn-primary"/>
+            </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock layout_step_by_step %}

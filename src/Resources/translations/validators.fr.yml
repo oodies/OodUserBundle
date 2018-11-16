@@ -1,0 +1,19 @@
+
+## ************************************
+## Title        : Registration
+## Description  :
+## URL          :
+## Type         : Validator
+user:
+    email:
+        not_blank: "Saisir une adresse mail"
+        max_length: "{{ limit }} caractères au maximum"
+        not_valid: "Email non conforme"
+        unique_entity: "Email déjà utilisé"
+    username:
+        not_blank: "Saisir un identifiant ou mail"
+        max_length: "{{ limit }} caractères au maximum"
+        unique_entity: "Identifiant déjà utilisé"
+    plainPassword:
+        not_blank: "Saisir un mot de passe"
+        max_length: "{{ limit }} caractères au maximum"

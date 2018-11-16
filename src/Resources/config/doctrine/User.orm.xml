@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Ood\UserBundle\Entity\User"
+            table="user_user"
+            repository-class="Ood\UserBundle\Repository\UserRepository">
+        <id name="id" column="id" type="integer" length="11">
+            <generator />
+            <options>
+                <option name="unsigned">true</option>
+                <option name="comment">Contains the ID of the user.</option>
+            </options>
+        </id>
+
+        <field name="username" column="username" length="60" unique="true">
+            <options>
+                <option name="comment">Contains the username (alias) of the person.</option>
+            </options>
+        </field>
+
+        <field name="email" column="email" length="60" unique="true">
+            <options>
+                <option name="comment">Contains the email address of the person.</option>
+            </options>
+        </field>
+
+        <field name="password" column="password" length="64" nullable="true" unique="true">
+            <options>
+                <option name="comment">Encrypted password. Must be persisted.</option>
+            </options>
+        </field>
+
+        <field name="plainPassword" column="plain_password" length="4096" nullable="true">
+            <options>
+                <option name="comment">Plain password. Used for model validation. Must not be persisted.</option>
+            </options>
+        </field>
+
+        <field name="confirmationToken" column="confirmation_token" length="255" nullable="true">
+            <options>
+                <option name="comment">Contains a random string sent to the user email address in order to verify it.</option>
+            </options>
+        </field>
+
+        <field name="registeredAt" column="registered_at" type="datetime">
+            <options>
+                <option name="comment">Date of registration.</option>
+            </options>
+        </field>
+
+        <field name="updateAt" column="update_at" type="datetime">
+            <options>
+                <option name="comment">Last update data.</option>
+            </options>
+        </field>
+
+        <field name="locked" column="locked" type="boolean">
+            <options>
+                <option name="comment">user is locked by an administrator.</option>
+                <option name="default">0</option>
+            </options>
+        </field>
+
+        <field name="isActive" column="is_active" type="boolean">
+            <options>
+                <option name="comment">user is active ?</option>
+                <option name="default">0</option>
+            </options>
+        </field>
+
+        <field name="roles" column="roles" type="array">
+            <options>
+                <option name="comment">Role of the user.</option>
+            </options>
+        </field>
+
+        <field name="locale" column="locale" length="2" nullable="true">
+            <options>
+                <option name="comment">Locale</option>
+            </options>
+        </field>
+
+        <field name="lastAction" column="last_action" type="datetime" nullable="true">
+            <options>
+                <option name="comment">last action</option>
+            </options>
+        </field>
+    </entity>
+
+</doctrine-mapping>

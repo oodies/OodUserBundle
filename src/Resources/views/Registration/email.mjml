@@ -1,0 +1,28 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-all font-family="Open Sans" padding="0px" align="left" color="#333333"></mj-all>
+      <mj-button color="#FFF" background-color="#1d7eb8" align="center" font-size="13px" font-weight="700" text-transform="uppercase" border-radius="50px" inner-padding="15px" line-height="30px"></mj-button>
+      <mj-class name="text" font-size="14px" padding-bottom="20px" line-height="20px"></mj-class>
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#e5e5e5">
+    <mj-wrapper padding-top="40px">
+      <mj-section full-width="full-width" padding-top="30px" padding-bottom="30px" background-color="#3c4858">
+        <mj-column vertical-align="middle">
+          <mj-text font-size="30px" font-weight="700" color="#ffffff" align="center" font-family="Proxima Nova Bold">{{ siteName|upper }}</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#fafafa" padding="40px 40px 20px 40px" border="1px solid lightgrey">
+        <mj-column>
+          <mj-text mj-class="text">{{ 'email.registration.text1'|trans({'%username%': username }, 'application') }}</mj-text>
+          <mj-text mj-class="text">{{ 'email.registration.text2'|trans({}, 'application') }}</mj-text>
+          <mj-button href="{{ urlConfirmation }}" padding-bottom="20px">{{ 'email.registration.text3'|trans({}, 'application') }}</mj-button>
+          <mj-text mj-class="text">{{ 'email.registration.text4'|trans({'%urlConfirmation%': urlConfirmation }, 'application') }}</mj-text>
+          <mj-text mj-class="text">{{ 'email.registration.text5'|trans({}, 'application') }}</mj-text>
+          <mj-text mj-class="text">{{ 'email.registration.text6'|trans({'%siteName%': siteName|upper }, 'application')|nl2br }}</mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

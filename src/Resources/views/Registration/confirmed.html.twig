@@ -1,0 +1,7 @@
+{% extends "@OodUser/layout.html.twig" %}
+{% trans_default_domain 'application' %}
+
+{% block content %}
+    <h3>{{ 'registration_confirmed.title'|trans }}</h3>
+    <p>{{ 'registration_confirmed.text'|trans({'%username%': user.username})|nl2br }}</p>
+{% endblock content %}

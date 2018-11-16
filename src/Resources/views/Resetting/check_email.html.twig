@@ -1,0 +1,13 @@
+{% extends "@OodUser/Resetting/layout_step_by_step.html.twig" %}
+{% trans_default_domain 'application' %}
+
+{% block layout_step_by_step %}
+    <div class="row setup-content" id="step-2">
+        <div class="col-md-12">
+            <h3 class="font-weight-bold pl-0 my-4"><strong>{{ 'resetting_check_email.title'|trans }}</strong></h3>
+            <div class="form-group md-form">
+                <p>{{ 'resetting_check_email.text'|trans({'%email%': email}) }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock layout_step_by_step %}

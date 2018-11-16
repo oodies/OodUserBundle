@@ -1,0 +1,184 @@
+## ************************************
+##    USER
+## ************************************
+
+## ************************************
+## Title        : login
+## Description  :
+## Type         : Page
+login:
+    # Header
+    hook: "Connexion"
+    # Form
+    username:
+        label: "Identifiant"
+    password:
+        label: "Mot de passe"
+    # Message error
+    error: "Vos informations sont incorrectes.\nEssayez encore."
+    # Link : password forgotten
+    form-resetting: "Mot de passe oublié ?"
+    # btn : login
+    submit: "connexion"
+
+## ************************************
+## Registration step by step
+registration_step:
+    title: "Inscription"
+
+## ************************************
+## Title        : registration->check email (step 1)
+## Description  :
+## URL          : /inscription/consulter-messagerie
+## Type         : Page
+registration_check_email:
+    action: "Messagerie"
+    title: "Consulter sa messagerie"
+    text: "Un e-mail a été envoyé à %email%. Il contient un lien d'activation sur lequel il vous faudra cliquer afin d'activer votre compte."
+
+## ************************************
+## Title        : registration->confirmed (step 2)
+## Description  :
+## URL          : /inscription/valide
+## Type         : Page
+registration_confirmed:
+    action: "Compte"
+    title: "Votre compte est activé"
+    text: "Félicitations %username%, votre compte est maintenant activé."
+    step_profile: "Poursuivre"
+
+## ************************************
+## Title        : New profile
+## Description  : Create a new profile
+## URL          : /inscription/profil
+## Type         : Page
+registration_new_profile:
+    title: "Votre profil !"
+    subtitle: "Démarques-toi avec un speudo original"
+    nickname: "Pseudonyme"
+    male: "Garçon"
+    female: "Fille"
+    lastname:
+        label: "Nom"
+    firstname:
+        label: "Prénom"
+    dtbirthday: "Date d'anniversaire"
+    day: "Jour"
+    month: "Mois"
+    year: "Année"
+    submit: "Valider"
+    city:
+        label: "Ville de rattachement"
+        placeholder: "Sélectionner une ville"
+
+## ************************************
+## Title        : registration->profil (step 3)
+## Description  :
+## URL          :
+## Type         : Page
+registration_profile:
+    action: "Profil"
+    title: "Votre profil !"
+    text: "Démarques-toi avec un speudo original"
+    username: "Pseudonyme"
+    male: "Garçon"
+    female: "Fille"
+    lastname:
+        label: "Nom"
+    firstname:
+        label: "Prénom"
+    dtbirthday: "Date d'anniversaire"
+    day: "Jour"
+    month: "Mois"
+    year: "Année"
+    submit: "Valider"
+    city:
+        label: "Ville de rattachement"
+        placeholder: "Sélectionner une ville"
+email:
+    registration:
+        subject: "Bienvenue %username% !"
+        text1: "Bonjour %username%,"
+        text2: "Nous avons reçu une demande pour une inscription sur notre site. Si vous n'avez pas fait une demande,
+              ignorez ce courriel. Sinon, vous pouvez utiliser le lien ci-dessous pour commencer."
+        text3: "Cliquez pour confirmer votre insctiption"
+        text4: "Lien : %urlConfirmation%"
+        text5: "Ce lien ne pourra être utilisé qu'une seule fois..."
+        text6: |
+            Merci,
+            L'équipe %siteName%
+
+    resetting:
+        subject: "Confirmation de demande pour réinitialiser son mot de passe"
+        text1: "Bonjour %username%,"
+        text2: "Nous avons reçu une demande pour réinitialiser un mot de passe. Si vous n'avez pas fait une demande,
+                ignorez ce courriel. Sinon, vous pouvez utiliser le lien ci-dessous pour commencer."
+        text3: "Cliquez pour réinitialiser votre mot de passe"
+        text4: "Lien : %confirmationUrl%"
+        text5: "Ce lien est valable durant 2 heures et ne peut être utilisé qu'une seule fois.."
+        text6: |
+            Merci,
+            L'équipe %siteName%
+
+
+        ## ************************************
+# Domain : User
+# Title  : Registration request
+# page   : Registration request
+# Type   : Page
+registration_request:
+    hook: "Rejoins-nous !"
+    description: "Trouvez des idées de sortie, participez aux rencontres et organisez vous-même vos événements.
+        Inscrivez-vous gratuitement."
+    username:
+        label: "Identifiant"
+    email:
+        label: "Votre Email"
+    plain_password:
+        label: "Mot de passe"
+    plain_password_repeat:
+        label: "Saisir à nouveau"
+    submit: "Créer un compte"
+
+## ************************************
+## Domain : User
+## title : Resetting password step by step
+## type : layout
+resetting_step:
+    title: "Mot de passe oublié ?"
+
+
+## ************************************
+# Domain : User
+# Title  : resetting password->request (step 1)
+# Type   : Page
+resetting_request:
+    action: "identification"
+    title: "Identifiant"
+    text: "Veuillez renseigner votre adresse e-mail afin de renseigner un nouveau mot de passe."
+    username:
+        label: "Nom d'utilisateur ou adresse e-mail"
+    submit: "Commencer"
+
+## ************************************
+# Domain : User
+# Title  : resetting password->check email (step 2)
+# Type   : Page
+resetting_check_email:
+    action: "Messagerie"
+    title: "Consulter sa messagerie"
+    text: "Un e-mail a été envoyé à %email%. Il contient un lien de réinitilisation sur lequel il vous faudra cliquer afin de définir un nouveau mot de passe."
+
+
+## ************************************
+# Domain : User
+# Title  : resetting password->reset (step 3)
+# Type   : Page
+resetting_reset:
+    action: "Mot de passe"
+    title: "Renseigner un nouveau mot de passe"
+    plain_password:
+        label: "Votre mot de passe"
+    plain_password_repeat:
+        label: "Saisir à nouveau"
+    submit: "Réinitialiser"

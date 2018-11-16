@@ -1,0 +1,32 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+services:
+    Ood\UserBundle\:
+        resource: '%kernel.project_dir%/lib/UserBundle/src/*'
+        autowire: true
+        autoconfigure: true
+        public: false
+        exclude: '%kernel.project_dir%/lib/UserBundle/src/{Entity}'
+
+    Ood\UserBundle\Controller\:
+        resource: '%kernel.project_dir%/lib/UserBundle/src/Controller/*/*Action.php'
+        autowire: true
+        autoconfigure: true
+        public: false
+        tags: ['controller.service_arguments']
+    #
+    ood_user.messaging:
+        class: Ood\UserBundle\Services\Messaging
+        autowire: false
+        arguments:
+            - '@Swift_Mailer'
+            - '@Twig_Environment'
+            - '@Symfony\Component\Routing\Generator\UrlGeneratorInterface'
+    OodUser\Services\Messaging: '@ood_user.messaging'
+
+    Ood\UserBundle\Tests\DataFixtures\ORM\:
+        resource: '%kernel.project_dir%/lib/UserBundle/tests/DataFixtures/ORM/*'
+        tags: ['doctrine.fixture.orm']

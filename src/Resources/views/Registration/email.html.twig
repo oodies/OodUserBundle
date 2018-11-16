@@ -1,0 +1,8 @@
+{% trans_default_domain 'application' %}
+{% block subject %}
+    {{ 'email.registration.subject'|trans({'%username%': username}) }}
+{% endblock subject %}
+
+{% block body_html %}
+    {% include ('@OodUser/Registration/email.html') %}
+{% endblock body_html %}
