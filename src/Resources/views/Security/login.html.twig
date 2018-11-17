@@ -11,11 +11,11 @@
             }} ) }}
         <div class="form-group">
             {{ form_label(form._username) }}
-            {{ form_widget(form._username,{ 'attr': {'autofocus':'','class':'form-control' }} ) }}
+            {{ form_widget(form._username,{ 'attr': {'autofocus':'','class':'form-control','tabindex':'1' }} ) }}
         </div>
         <div class="form-group">
             {{ form_label(form._password) }}
-            {{ form_widget(form._password, {'attr': {'class':'form-control' }} ) }}
+            {{ form_widget(form._password, {'attr': {'class':'form-control','tabindex':'2' }} ) }}
         </div>
         {% if error %}
         <div class="alert-danger">{{ 'login.error'|trans|nl2br }}</div>
