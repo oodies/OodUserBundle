@@ -2,33 +2,27 @@
 {% trans_default_domain 'application' %}
 
 {% block content %}
-    <div class="card ml-auto mr-auto" style="max-width: 400px">
-        <h5 class="card-header primary-color white-text text-center py-4">
-            <strong>{{ 'registration_request.hook'|trans }}</strong>
-        </h5>
-        <div class="card-body px-lg-5 pt-0">
-            {{ form_start(form, {'attr': {'novalidate': 'novalidate' }} ) }}
-            <div class="md-form">
-                {{ form_widget(form.email, { 'attr': {'tabindex':'1', 'autofocus': '' }} ) }}
-                {{ form_label(form.email) }}
-            </div>
-            <div class="md-form">
-                {{ form_widget(form.username, { 'attr': { 'tabindex':'2' }} ) }}
-                {{ form_label(form.username) }}
-            </div>
-            <div class="md-form">
-                {{ form_widget(form.plainPassword.first , { 'attr': { 'tabindex':'3' }} ) }}
-                {{ form_label(form.plainPassword.first) }}
-            </div>
-            <div class="md-form">
-                {{ form_widget(form.plainPassword.second, { 'attr': { 'tabindex':'4' }} ) }}
-                {{ form_label(form.plainPassword.second) }}
-            </div>
-            <div>
-                <button type="submit" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" tabindex="5">{{ 'registration_request.submit'|trans }}</button>
-            </div>
-            {{ form_rest(form) }}
-            {{ form_end(form) }}
+    <div class="border rounded mt-4 p-3">
+        <h2 class="text-center mb-3">{{ 'registration_request.title'|trans }}</h2>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate' }} ) }}
+        <div class="form-group">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email, { 'attr': {'tabindex':'1','class':'form-control', 'autofocus': '' }} ) }}
         </div>
+        <div class="form-group">
+            {{ form_label(form.username) }}
+            {{ form_widget(form.username, { 'attr': { 'tabindex':'2','class':'form-control' }} ) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.plainPassword.first) }}
+            {{ form_widget(form.plainPassword.first , { 'attr': { 'tabindex':'3','class':'form-control' }} ) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.plainPassword.second) }}
+            {{ form_widget(form.plainPassword.second, { 'attr': { 'tabindex':'4','class':'form-control' }} ) }}
+        </div>
+        <button type="submit" class="btn btn-outline-primary" tabindex="5">{{ 'registration_request.submit'|trans }}</button>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
     </div>
 {% endblock content %}
