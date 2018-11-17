@@ -16,7 +16,7 @@
                     <value>login</value>
                 </option>
             </constraint>
-            <constraint name="length">
+            <constraint name="Length">
                 <option name="max">60</option>
                 <option name="maxMessage">user.username.max_length</option>
                 <option name="groups">
@@ -56,9 +56,43 @@
         <property name="password">
             <constraint name="Length">
                 <option name="max">64</option>
-                <option name="maxMessge">user.password.max_length</option>
+                <option name="maxMessage">user.password.max_length</option>
             </constraint>
         </property>
-        
+
+        <property name="plainPassword">
+            <constraint name="NotBlank">
+                <option name="message">user.plainPassword.not_blank</option>
+                <option name="groups">
+                    <value>registration</value>
+                    <value>resettingReset</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="max">4096</option>
+                <option name="maxMessage">user.plainPassword.max_length</option>
+                <option name="groups">
+                    <value>registration</value>
+                    <value>resettingReset</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="registeredAt">
+            <constraint name="DateTime">
+                <option name="message">user.registeredAt.not_validate</option>
+            </constraint>
+        </property>
+
+        <property name="updateAt">
+            <constraint name="DateTime">
+                <option name="message">user.updatedAt.not_validate</option>
+            </constraint>
+        </property>
+
+        <property name="roles">
+            <constraint name="Type">\array</constraint>
+        </property>
+
     </class>
 </constraint-mapping>
