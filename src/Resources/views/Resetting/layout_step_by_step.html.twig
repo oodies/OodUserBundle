@@ -2,36 +2,32 @@
 {% trans_default_domain 'application' %}
 
 {% block content %}
-    <div class="card">
-        <div class="card-body mb-4">
-            <h2 class="text-center font-weight-bold pt-4 pb-5"><strong>{{ 'resetting_step.title'|trans }}</strong></h2>
-            <!-- Stepper -->
-            <div class="steps-form">
-                <div class="steps-row setup-panel">
-                    <div class="steps-step">
-                        <a href="#step-1" type="button"
-                           class="btn btn-circle {% if (step == 1) %}{{ 'btn-indigo' }}{% else %}{{ ' btn-default' }}{% endif %}">1</a>
-                        <p>{{ 'resetting_request.action'|trans }}</p>
-                    </div>
-                    <div class="steps-step">
-                        <a href="#step-2" type="button"
-                           class="btn btn-circle {% if (step == 2) %}{{ 'btn-indigo ' }}{% else %}{{ 'btn-default' }}{% endif %}"
-                                {% if (step < 2) %}{{ 'disabled="disabled"' }}{% endif %}
-                        >2</a>
-                        <p>{{ 'resetting_check_email.action'|trans }}</p>
-                    </div>
-                    <div class="steps-step">
-                        <a href="#step-3" type="button"
-                           class="btn btn-circle {% if (step == 3) %} {{ 'btn-indigo ' }}{% else %}{{ 'btn-default' }}{% endif %}"
-                                {% if (step < 3) %}{{ ' disabled="disabled"' }}{% endif %}
-                        >3</a>
-                        <p>{{ 'resetting_reset.action'|trans }}</p>
-                    </div>
-                </div>
+    <div class="border rounded p-4 mt-3">
+        <h1 class="text-center mb-4">{{ 'resetting_step.title'|trans }}</h1>
+        <!-- Stepper -->
+        <div class="steps-form d-flex flex-row w-100">
+            <div class="steps-step flex-fill text-center">
+                <a href="#step-1" type="button"
+                   class="btn {% if (step >1) %} {{ 'btn-success' }} {% elseif (step == 1) %}{{ 'btn-primary' }}{% else %}{{ ' btn-light' }}{% endif %}">1</a>
+                <p>{{ 'resetting_request.action'|trans }}</p>
             </div>
-            {% block layout_step_by_step %}
-            {% endblock layout_step_by_step %}
+            <div class="steps-step flex-fill text-center">
+                <a href="#step-2" type="button"
+                   class="btn {% if (step >2) %} {{ 'btn-success' }} {% elseif (step == 2) %}{{ 'btn-primary' }}{% else %}{{ 'btn-light' }}{% endif %}"
+                        {% if (step < 2) %}{{ 'disabled="disabled"' }}{% endif %}
+                >2</a>
+                <p>{{ 'resetting_check_email.action'|trans }}</p>
+            </div>
+            <div class="steps-step flex-fill text-center">
+                <a href="#step-3" type="button"
+                   class="btn {% if (step >3) %} {{ 'btn-success' }} {% elseif (step == 3) %} {{ 'btn-primary' }}{% else %}{{ 'btn-light' }}{% endif %}"
+                        {% if (step < 3) %}{{ ' disabled="disabled"' }}{% endif %}
+                >3</a>
+                <p>{{ 'resetting_reset.action'|trans }}</p>
+            </div>
         </div>
+        {% block layout_step_by_step %}
+        {% endblock layout_step_by_step %}
     </div>
 {% endblock content %}
 

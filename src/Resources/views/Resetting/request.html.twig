@@ -2,23 +2,16 @@
 {% trans_default_domain 'application' %}
 
 {% block layout_step_by_step %}
-    <div class="row setup-content" id="step-1">
-        <div class="col-md-12">
-            {{ form_start(form, {'attr': {'novalidate': 'novalidate' }} ) }}
-            <p class="h4 pt-4 teal-text">{{ 'resetting_request.title'|trans }}</p>
+    <div class="border rounded mt-4 p-3" id="step-1">
+        <h2 class="mb-3">{{ 'resetting_request.title'|trans }}</h2>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate' }} ) }}
+        <div class="form-group">
+            {{ form_label(form.username) }}
+            {{ form_widget(form.username) }}
             <p>{{ 'resetting_request.text'|trans }}</p>
-            <div class="md-form">
-                <i class="fa fa-envelope-o prefix grey-text" aria-hidden="true"></i>
-                {{ form_widget(form.username) }}
-                {{ form_label(form.username) }}
-            </div>
-            <div class="text-center mt-4">
-                <button type="submit" class="btn btn-default">
-                    {{ 'resetting_request.submit'|trans }}
-                </button>
-            </div>
-            {{ form_rest(form) }}
-            {{ form_end(form) }}
         </div>
+        <button type="submit" class="btn btn-outline-primary">{{ 'resetting_request.submit'|trans }}</button>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
     </div>
 {% endblock layout_step_by_step %}

@@ -127,9 +127,7 @@ email:
 # page   : Registration request
 # Type   : Page
 registration_request:
-    hook: "Rejoins-nous !"
-    description: "Trouvez des idées de sortie, participez aux rencontres et organisez vous-même vos événements.
-        Inscrivez-vous gratuitement."
+    title: "Inscription"
     username:
         label: "Identifiant"
     email:
