@@ -8,11 +8,11 @@
         Security
     -->
 
-    <route id="ood_user_security_login" methods="GET POST" path="/connexion"
+    <route id="ood_user_security_login" methods="GET POST" path="/login"
            controller="Ood\UserBundle\Controller\Security\LoginAction">
     </route>
 
-    <route id="ood_user_security_logout" methods="GET" path="/deconnexion"
+    <route id="ood_user_security_logout" methods="GET" path="/logout"
            controller="Ood\UserBundle\Controller\Security\LogoutAction" >
     </route>
 </routes>

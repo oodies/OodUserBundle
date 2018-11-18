@@ -8,19 +8,19 @@
         Registration
      -->
 
-    <route id="ood_user_registration_register" methods="GET POST" path="/inscription"
+    <route id="ood_user_registration_register" methods="GET POST" path="/registration/register"
            controller="Ood\UserBundle\Controller\Registration\RegisterAction">
     </route>
 
-    <route id="ood_user_registration_check_email" methods="GET" path="/inscription/consulter-messagerie"
+    <route id="ood_user_registration_check_email" methods="GET" path="/registration/check-email"
            controller="Ood\UserBundle\Controller\Registration\CheckEmailAction">
     </route>
 
-    <route id="ood_user_registration_confirm" methods="GET POST" path="/inscription/confirmer/{token}"
+    <route id="ood_user_registration_confirm" methods="GET POST" path="/registration/confirm/{token}"
            controller="Ood\UserBundle\Controller\Registration\ConfirmAction">
     </route>
 
-    <route id="ood_user_registration_confirmed" methods="GET" path="/inscription/valide"
+    <route id="ood_user_registration_confirmed" methods="GET" path="/registration/confirmed"
            controller="Ood\UserBundle\Controller\Registration\ConfirmedAction">
     </route>
 </routes>

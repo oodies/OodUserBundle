@@ -7,19 +7,19 @@
     <!--
         Resetting
     -->
-    <route id="ood_user_resetting_request" methods="GET POST" path="/mot-de-passe-oublie"
+    <route id="ood_user_resetting_request" methods="GET POST" path="/resetting"
            controller="Ood\UserBundle\Controller\Resetting\RequestAction">
     </route>
 
-    <route id="ood_user_resetting_send_email" methods="GET" path="/mot-de-passe-oublie/reinitialiser"
+    <route id="ood_user_resetting_send_email" methods="GET" path="/resetting/send-email"
            controller="Ood\UserBundle\Controller\Resetting\SendEmailAction">
     </route>
 
-    <route id="ood_user_resetting_check_email" methods="GET" path="/mot-de-passe-oublie/consulter-messagerie"
+    <route id="ood_user_resetting_check_email" methods="GET" path="/resetting/check-email"
            controller="Ood\UserBundle\Controller\Resetting\CheckEmailAction">
     </route>
 
-    <route id="ood_user_resetting_reset" methods="GET POST" path="/mot-de-passe-oublie/renseigner-nouveau/{token}"
+    <route id="ood_user_resetting_reset" methods="GET POST" path="/resetting/reset/{token}"
            controller="Ood\UserBundle\Controller\Resetting\ResetAction">
     </route>
 </routes>
