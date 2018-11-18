@@ -19,21 +19,7 @@ class UserTest extends TestCase
     /** @var User */
     protected $user;
 
-
     /**
-     * @throws InvalidArgumentException
-     * @throws ReflectionException
-     * @throws \PHPUnit\Framework\Exception
-     */
-    public function setUp()
-    {
-        $this->user = $this->getUser();
-    }
-
-    /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public function testId()
     {
@@ -42,8 +28,7 @@ class UserTest extends TestCase
     }
 
     /**
-     * @throws InvalidArgumentException
-     * @throws ReflectionException
+
      * @throws \PHPUnit\Framework\Exception
      * @throws \PHPUnit\Framework\ExpectationFailedException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException

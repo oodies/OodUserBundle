@@ -4,29 +4,25 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
         backupGlobals="false"
-        bootstrap="vendor/autoload.php"
+        bootstrap="./vendor/autoload.php"
         colors="true"
-        stopOnError="true"
+        stopOnError="false"
         stopOnRisky="true"
 >
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <server name="KERNEL_DIR" value="./src/" />
+    </php>
+
     <testsuites>
         <testsuite name="oodUserBundle Test Suite">
-            <directory>./Tests</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
-    <php>
-        <server name="KERNEL_DIR" value="./Tests/Fixtures/app" />
-    </php>
-
     <filter>
         <whitelist>
-            <directory>./</directory>
-            <exclude>
-                <directory>./Resources</directory>
-                <directory>./Tests</directory>
-                <directory>./vendor</directory>
-            </exclude>
+            <directory>./src</directory>
         </whitelist>
     </filter>
 </phpunit>
