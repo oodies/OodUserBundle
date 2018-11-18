@@ -18,10 +18,10 @@
             {{ form_widget(form._password, {'attr': {'class':'form-control','tabindex':'2' }} ) }}
         </div>
         {% if error %}
-        <div class="alert-danger">{{ 'login.error'|trans|nl2br }}</div>
+        <div class="alert alert-danger error" role="alert">{{ 'login.error'|trans|nl2br }}</div>
         {% endif %}
         <p><a href="{{ path('ood_user_resetting_request') }}" id="resetting-request" tabindex="4">{{ 'login.form-resetting'|trans }}</a></p>
-        <button type="submit" class="btn btn-outline-primary" tabindex="3">{{ 'login.submit'|trans }}</button>
+        <button id="submit" type="submit" class="btn btn-outline-primary" tabindex="3">{{ 'login.submit'|trans }}</button>
         {{ form_rest(form) }}
         {{ form_end(form) }}
     </div>
