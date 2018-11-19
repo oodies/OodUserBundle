@@ -29,6 +29,6 @@ services:
     Ood\UserBundle\Services\Messaging: '@ood_user.messaging'
     #
     # Testing environment
-    Ood\UserBundle\Tests\DataFixtures\ORM\:
-        resource: '../../../tests/DataFixtures/ORM/*'
-        tags: ['doctrine.fixture.orm']
+#    Ood\UserBundle\Tests\DataFixtures\ORM\:
+#        resource: '../../../tests/DataFixtures/ORM/*'
+#        tags: ['doctrine.fixture.orm']
