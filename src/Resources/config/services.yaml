@@ -4,7 +4,21 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 services:
-    #
+    # AutoWiring
+    Ood\UserBundle\:
+        resource: '../../../src/*'
+        autowire: true
+        autoconfigure: true
+        public: false
+        exclude: '../../../src/{DependencyInjection,Entity,Form,Migrations}'
+    # AutoWiring on action
+    Ood\UserBundle\Controller\:
+        resource: '../../../src/Controller/*/*Action.php'
+        autowire: true
+        autoconfigure: true
+        public: false
+        tags: ['controller.service_arguments']
+    # Messaging service
     ood_user.messaging:
         class: Ood\UserBundle\Services\Messaging
         autowire: false
@@ -13,3 +27,8 @@ services:
             - '@Twig_Environment'
             - '@Symfony\Component\Routing\Generator\UrlGeneratorInterface'
     Ood\UserBundle\Services\Messaging: '@ood_user.messaging'
+    #
+    # Testing environment
+    Ood\UserBundle\Tests\DataFixtures\ORM\:
+        resource: '../../../tests/DataFixtures/ORM/*'
+        tags: ['doctrine.fixture.orm']
