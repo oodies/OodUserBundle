@@ -14,6 +14,7 @@ namespace Ood\UserBundle\Security;
 use Doctrine\ORM\EntityManagerInterface;
 use Ood\UserBundle\Form\LoginForm;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -175,9 +176,29 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
+        if ($request->isXmlHttpRequest()) {
+            return new JsonResponse(['success' => true]);
+        }
         return new RedirectResponse($this->router->generate(self::URL_FRONT_HOMEPAGE));
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @return Response|RedirectResponse
+     */
+    public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
+    {
+        if ($request->hasSession()) {
+            $request->getSession()->set(Security::AUTHENTICATION_ERROR, $exception);
+        }
+
+        if ($request->isXmlHttpRequest()) {
+            return new JsonResponse(['success' => false]);
+        }
+
+        return new RedirectResponse($this->getLoginUrl());
+    }
     /**
      * {@inheritdoc}
      *
