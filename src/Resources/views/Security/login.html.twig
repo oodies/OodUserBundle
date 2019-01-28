@@ -2,26 +2,5 @@
 {% trans_default_domain 'application' %}
 
 {% block content %}
-    <div class="border rounded mt-4 p-3">
-        <h2 class="text-center mb-3">{{ 'login.hook'|trans }}</h2>
-        {{ form_start(form,
-            {'attr' :{
-                'novalidate':'novalidate' ,
-                'action': path('ood_user_security_login')
-            }} ) }}
-        <div class="form-group">
-            {{ form_label(form._username) }}
-            {{ form_widget(form._username,{ 'attr': {'autofocus':'','class':'form-control','tabindex':'1' }} ) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form._password) }}
-            {{ form_widget(form._password, {'attr': {'class':'form-control','tabindex':'2' }} ) }}
-        </div>
-        <div class="alert alert-danger error" role="alert" {% if error %}style="display: block"
-             {% else %}style="display: none"{% endif %}>{{ 'login.error'|trans|nl2br }}</div>
-        <p><a href="{{ path('ood_user_resetting_request') }}" id="resetting-request" tabindex="4">{{ 'login.form-resetting'|trans }}</a></p>
-        <button id="submit" type="submit" class="btn btn-outline-primary" tabindex="3">{{ 'login.submit'|trans }}</button>
-        {{ form_rest(form) }}
-        {{ form_end(form) }}
-    </div>
+    {% include ('@OodUser/Security/login_content.html.twig') %}
 {% endblock content %}

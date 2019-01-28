@@ -14,6 +14,7 @@ namespace Ood\UserBundle\Controller\Security;
 use Ood\UserBundle\Form\LoginForm;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -71,7 +72,7 @@ final class LoginAction
      *
      * @return Response
      */
-    public function __invoke(UserInterface $user = null): Response
+    public function __invoke(Request $request, UserInterface $user = null): Response
     {
         if (null !== $user) {
             return new RedirectResponse($this->router->generate('index'));
@@ -83,9 +84,15 @@ final class LoginAction
             ['_username' => $this->authenticationUtils->getLastUsername()]
         );
 
+        if ($request->isXmlHttpRequest()) {
+            $templating = '@OodUser/Security/login_content.html.twig';
+        } else {
+            $templating = '@OodUser/Security/login.html.twig';
+        }
+
         return new Response(
             $this->twig->render(
-                '@OodUser/Security/login.html.twig',
+                $templating,
                 [
                     'form' => $form->createView(),
                     // get the login error if there is one
