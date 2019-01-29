@@ -2,7 +2,7 @@
 {% trans_default_domain 'application' %}
 
 {% block layout_step_by_step %}
-    <div class="border rounded mt-4 p-3" id="step-3">
+    <div id="step-3">
         <h2 class="mb-3">{{ 'resetting_reset.title'|trans }}</h2>
         {{ form_start(form,
             { 'action': path('ood_user_resetting_reset',{'token': token}),
