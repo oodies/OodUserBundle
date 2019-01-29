@@ -59,6 +59,10 @@ class LoginForm extends AbstractType
             [
                 'allow_extra_fields' => true,
                 'translation_domain' => 'application',
+                'attr'               => [
+                    'name' => 'form_login',
+                    'id'   => 'form_login',
+                ],
             ]
         );
     }
@@ -68,5 +72,6 @@ class LoginForm extends AbstractType
      */
     public function getBlockPrefix()
     {
+        return null;
     }
 }
