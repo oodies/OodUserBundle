@@ -2,7 +2,6 @@
 {% trans_default_domain 'application' %}
 
 {% block content %}
-    <div class="border rounded p-4 mt-3">
         <h1 class="text-center mb-4">{{ 'resetting_step.title'|trans }}</h1>
         <!-- Stepper -->
         <div class="steps-form d-flex flex-row w-100">
@@ -28,7 +27,6 @@
         </div>
         {% block layout_step_by_step %}
         {% endblock layout_step_by_step %}
-    </div>
 {% endblock content %}
 
 {# up to ::layout.html.twig #}
