@@ -20,7 +20,7 @@
             {{ form_label(form.plainPassword.second) }}
             {{ form_widget(form.plainPassword.second, { 'attr': { 'tabindex':'4','class':'form-control' }} ) }}
         </div>
-        <button type="submit" class="btn btn-outline-primary" tabindex="5">{{ 'registration_request.submit'|trans }}</button>
+        <button type="submit" class="btn btn-outline-primary float-right" tabindex="5">{{ 'registration_request.submit'|trans }}</button>
         {{ form_rest(form) }}
         {{ form_end(form) }}
 {% endblock content %}

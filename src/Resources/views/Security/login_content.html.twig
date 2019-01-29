@@ -16,7 +16,7 @@
     <div class="alert alert-danger error" role="alert" {% if error %}style="display: block"
          {% else %}style="display: none"{% endif %}>{{ 'login.error'|trans|nl2br }}</div>
     <p><a href="{{ path('ood_user_resetting_request') }}" id="resetting-request" tabindex="4">{{ 'login.form-resetting'|trans }}</a></p>
-    <button id="form_login-submit" type="submit" class="btn btn-outline-primary"
+    <button id="form_login-submit" type="submit" class="btn btn-outline-primary float-right"
             tabindex="3">{{ 'login.submit'|trans }}</button>
     {{ form_rest(form) }}
     {{ form_end(form) }}
