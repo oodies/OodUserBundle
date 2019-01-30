@@ -14,6 +14,8 @@ login:
         label: "Identifiant"
     password:
         label: "Mot de passe"
+    remember_me:
+        label: "Se souvenir de moi"
     # Message error
     error: "Vos informations sont incorrectes.\nEssayez encore."
     # Link : password forgotten

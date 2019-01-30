@@ -12,6 +12,7 @@
 namespace Ood\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -45,6 +46,15 @@ class LoginForm extends AbstractType
                     'required' => true,
                 ]
             )
+            ->add(
+                '_remember_me',
+                CheckboxType::class,
+                [
+                    'mapped'   => false,
+                    'label'    => 'login.remember_me.label',
+                    'required' => false,
+                ]
+            )
         ;
     }
 
@@ -72,6 +82,6 @@ class LoginForm extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return null;
+        return '';
     }
 }

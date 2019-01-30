@@ -113,8 +113,9 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
      *
      * @param Request $request
      *
-     * @throws \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
      * @throws \Symfony\Component\Form\Exception\LogicException
+     * @throws \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @throws \UnexpectedValueException
      *
      * @return mixed Any non-null value
      */
@@ -168,9 +169,6 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
      * @param string         $providerKey The provider (i.e. firewall) key
      *
      * @throws \InvalidArgumentException
-     * @throws \Symfony\Component\Routing\Exception\InvalidParameterException
-     * @throws \Symfony\Component\Routing\Exception\MissingMandatoryParametersException
-     * @throws \Symfony\Component\Routing\Exception\RouteNotFoundException
      *
      * @return Response|null
      */
@@ -179,11 +177,17 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
         if ($request->isXmlHttpRequest()) {
             return new JsonResponse(['success' => true]);
         }
+
         return new RedirectResponse($this->router->generate(self::URL_FRONT_HOMEPAGE));
     }
 
     /**
      * {@inheritdoc}
+     *
+     * @param Request                 $request
+     * @param AuthenticationException $exception
+     *
+     * @throws \InvalidArgumentException
      *
      * @return Response|RedirectResponse
      */
@@ -199,12 +203,19 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
 
         return new RedirectResponse($this->getLoginUrl());
     }
+
     /**
      * {@inheritdoc}
      *
-     * @throws \Symfony\Component\Routing\Exception\InvalidParameterException
-     * @throws \Symfony\Component\Routing\Exception\MissingMandatoryParametersException
-     * @throws \Symfony\Component\Routing\Exception\RouteNotFoundException
+     * @return bool
+     */
+    public function supportsRememberMe()
+    {
+        return true;
+    }
+
+    /**
+     * {@inheritdoc}
      *
      * @return string
      */
